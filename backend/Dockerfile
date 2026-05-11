@@ -1,9 +1,6 @@
-FROM golang:1.21-alpine AS builder
+FROM golang:1.21-bookworm AS builder
 
 WORKDIR /app
-
-# Install build dependencies
-RUN apk add --no-cache gcc musl-dev sqlite-dev
 
 COPY go.mod go.sum ./
 RUN go mod download
@@ -11,8 +8,12 @@ RUN go mod download
 COPY . .
 RUN CGO_ENABLED=1 GOOS=linux go build -o server .
 
-FROM alpine:3.19
-RUN apk add --no-cache sqlite-libs ca-certificates tzdata
+FROM debian:bookworm-slim
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ca-certificates tzdata && \
+    rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
 COPY --from=builder /app/server .
 
