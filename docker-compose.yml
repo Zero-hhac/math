@@ -47,3 +47,7 @@ services:
 volumes:
   backend_data:
   backend_uploads:
+
+networks:
+  math-network:
+    driver: bridge
