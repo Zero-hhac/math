@@ -15,7 +15,7 @@ type Config struct {
 
 func Load() *Config {
 	return &Config{
-		ServerPort: getEnv("192.168.31.34", "8080"),
+		ServerPort: getEnv("SERVER_PORT", "8080"),
 		DBPath:     getEnv("DB_PATH", "./data/math_association.db"),
 		JWTSecret:  getEnv("JWT_SECRET", "math-association-secret-key-2024"),
 		RedisAddr:  getEnv("REDIS_ADDR", "localhost:6379"),

@@ -107,9 +107,9 @@ npm run dev
 
 | 文件 | 修改位置 | 当前值 |
 |------|---------|--------|
-| `frontend/vite.config.js` | proxy target | `http://47.76.162.176:8080` |
-| `backend/main.go` 第 53 行 | 启动日志中的 IP 显示 | `47.76.162.176` |
-| `nginx/nginx.conf` 第 25 行 | server_name | `47.76.162.176 localhost` |
+| `frontend/vite.config.js` | proxy target | `http://localhost:8080` |
+| `backend/main.go` 第 53 行 | 启动日志中的公网 IP 显示 | `43.99.48.199` |
+| `nginx/nginx.conf` 第 25 行 | server_name | `43.99.48.199 172.30.11.199 localhost` |
 
 其他设备访问 `http://你的IP:5173` 即可。若无法访问，检查路由器是否开启了 AP 隔离。
 

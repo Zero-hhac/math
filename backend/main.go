@@ -51,7 +51,7 @@ func main() {
 	r := routes.Setup(db, cfg.UploadDir)
 
 	addr := fmt.Sprintf("0.0.0.0:%s", cfg.ServerPort)
-	log.Printf("🚀 数学协会后端服务启动: http://47.76.162.176:%s", cfg.ServerPort)
+	log.Printf("🚀 数学协会后端服务启动: http://43.99.48.199:%s", cfg.ServerPort)
 	if err := r.Run(addr); err != nil {
 		log.Fatalf("Server failed to start: %v", err)
 	}
